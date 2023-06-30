@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+  
+  .card {
+    height: 300px;
+    border-radius: 16px;
+    border: 1px solid gainsboro;
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #b1b1b1;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .leftItemWrapper img {
+    width: 30px;
+    height: 30px;
+  }
+  .leftItemWrapper span {
+    vertical-align: 10px;
+  }
+  
+  .rightItemWrapper {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .rightItemWrapper svg {
+    width: 30px;
+    height: 30px;
+  }
+  
