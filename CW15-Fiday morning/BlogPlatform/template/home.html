@@ -1,0 +1,9 @@
+<!-- templates/BlogApp/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Welcome to Blog Platform</h2>
+<a href="{% url 'post_list' %}">Create a Post</a>
+<a href="{% url 'category_list' %}">Create a Category</a>
+<a href="{% url 'author_list' %}">Create an Author</a>
+{% endblock %}
