@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>MusicPlayer</title>
+    {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> {% endcomment %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (max-width:768px)" href="{% static 'styles/mobile.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/font-swesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style-color.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    {% block extra_style %}{% endblock extra_style %}
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        .jumbotron{
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/html5shiv.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $(".increaseBtn, .decreaseBtn").click(function() {
+                var foodId = $(this).data('food-id');
+                var inputField = $("#input-food-" + foodId);
+                var inputValue = parseInt(inputField.val());
+
+                if ($(this).hasClass('increaseBtn')) {
+                    if (inputValue < 50) {
+                        inputField.val(inputValue + 1);
+                    }
+                } else if ($(this).hasClass('decreaseBtn')) {
+                    if (inputValue > 1) {
+                        inputField.val(inputValue - 1);
+                    }
+                }
+            });
+        });
+    </script>
+    {% comment %} {% include 'inc/navbar.html' %} {% endcomment %}
+    
+    {% include 'inc/messages.html' %}
+    {% block content %} {% endblock %}
+    
+
+</body>
+</html>

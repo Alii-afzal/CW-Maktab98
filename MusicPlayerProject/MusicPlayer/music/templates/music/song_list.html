@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!-- block for animate navigation menu -->
+<div class="nav-animate"></div>
+			
+<!-- Hero block area -->
+<div id="latestalbum" class="hero pad">
+    <div class="container">
+        <!-- hero content -->
+        <div class="hero-content ">
+            <!-- heading -->
+            <h2>Latest Album</h2>
+            <hr>
+            <!-- paragraph -->
+            <p>We sing the best <strong class="theme-color">Songs</strong> and now we control the world best <strong class="theme-color">Music</strong>.</p>
+        </div>
+        <!-- hero play list -->
+        <div class="hero-playlist">
+            <div class="row">
+                {% for song in songs %}
+                <div class="col-md-4 col-sm-4">
+                    <!-- music album image -->
+                    <div class="figure">
+                        <!-- image -->
+                        <img class="img-responsive" src="{{ song.cover_photo.url }}" alt="" />
+                        <!-- disk image -->
+                        <img class="img-responsive disk" src="{% static 'img/album/disk.png' %}" alt="" />
+                    </div>
+                    <!-- album details -->
+                    <div class="album-details">
+                        <!-- title -->
+                        <h2>{{ song.title }}</h2>
+                        <!-- composed by -->
+                        <h5>{% for artist in song.artists.all %} {{ artist }} {% endfor %} </h5>
+                        <!-- paragraph -->
+                        <p>{{ song.genre }}</p>
+                            
+                            <audio controls>
+                                <source src="{{ song.audio_file.url }}" type="audio/mpeg" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now>
+                            </audio>
+                        
+                        <!-- button -->
+                            {% comment %} <a href="{{ song.audio_file.url }}" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now</a> {% endcomment %}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-md-6 col-sm-6">
+                    <!-- play list -->
+                    <div class="playlist-content">
+                        <ul class="list-unstyled">
+                            {% comment %} {% for song in songs %}
+                                <a href="{{ song.audio_file.url }}" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now</a>
+                                <audio controls>
+                                    <source src="{{ song.audio_file.url }}" type="audio/mpeg" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now>
+                                </audio>
+                            {% endfor %} {% endcomment %}
+                            {% for song in songs %}
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>{{ song.title }}</h4>
+                                    
+                                    <p><strong>Artist</strong>:{% for artist in song.artists.all %} {{ artist }} {% endfor %}  &nbsp;|&nbsp; <strong>Genre</strong>: {{ song.genre }}</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    {% comment %} <a href="{{ song.audio_file.url }}" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now</a> {% endcomment %}
+                                    <audio controls>
+                                        <source src="{{ song.audio_file.url }}" type="audio/mpeg" class="btn btn-lg btn-theme" id="playNowBtn"><i class="fa fa-play"></i>&nbsp; Play Now>
+                                    </audio>
+                                    {% comment %} <a href="{{ song.audio_file.url }}"><i class="fa fa-play"></i></a>
+                                    <a href="{{ song.audio_file.url }}"><i class="fa fa-pause"></i></a> {% endcomment %}
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            {% endfor %}
+                            {% comment %} <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Two</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Three</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Four</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Five</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Six</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Seven</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                            <li class="playlist-number">
+                                <!-- song information -->
+                                <div class="song-info">
+                                    <!-- song title -->
+                                    <h4>Melodi Song Track Eight</h4>
+                                    <p><strong>Album</strong>: Title &nbsp;|&nbsp; <strong>Type</strong>: Rock &nbsp;|&nbsp; <strong>Singer</strong>: Dawn</p>
+                                </div>
+                                <!-- music icon -->
+                                <div class="music-icon">
+                                    <a href="#"><i class="fa fa-play"></i></a>
+                                    <a href="#"><i class="fa fa-pause"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li> {% endcomment %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ hero end -->
+
+{% endblock %}
